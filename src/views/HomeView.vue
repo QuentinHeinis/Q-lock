@@ -9,8 +9,9 @@
     <RouterLink to="/Tickets" class="mr-3"><solidBtn>Tickets</solidBtn></RouterLink>
     <RouterLink to="/Tickets"><outlineBtn>Line-up</outlineBtn></RouterLink>
   </div>
-  <Container>
+  <Container class="gap-[10px] flex flex-col">
     <h2 class="font-smythe text-xl">Latest spdates</h2>
+    <UpdateNewsCard v-for="i in 5" :key="i"></UpdateNewsCard>
   </Container>
   
 </template>
@@ -19,8 +20,9 @@
 import solidBtn from '../components/buttons/solidBtn.vue'
 import outlineBtn from '../components/buttons/outlineBtn.vue'
 import Container from '../components/Container.vue'
+import UpdateNewsCard from '../components/cards/updateNewsCard.vue'
 export default {
-  components:{ solidBtn, outlineBtn, Container }
+  components:{ solidBtn, outlineBtn, Container, UpdateNewsCard }
 }
 </script>
 

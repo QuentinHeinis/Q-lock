@@ -1,5 +1,6 @@
 <template>
   <div class="mt-12 px-5 flex flex-col gap-20">
+    <h1 class="font-smythe text-2xl">Latest updates</h1>
     <NewsCards/>
     <ReleasesCards/>
     <NewsCards/>

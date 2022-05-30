@@ -1,10 +1,10 @@
 <template>
   <div class="h-[96px] w-full color rounded-default flex overflow-hidden font-source-sans-pro">
     <div class="flex-none w-[40%] max-w-[150px]">
-        <img src="/src/assets/Ticket.png" alt="" class="object-cover w-full h-full">
+        <img :src="image" alt="" class="object-cover w-full h-full">
     </div>
     <div class="flex w-full justify-between items-center mb-3 px-3">
-        <p class="text-black font-smythe text-lg">{{date}}</p>
+        <p class="text-black font-smythe text-lg">{{text}}</p>
         <ArrowCircleRightIcon class="w-5 h-5 stroke-black"/>
     </div>
       
@@ -17,9 +17,13 @@ import { ArrowCircleRightIcon } from '@heroicons/vue/outline'
 export default {
     components:{ArrowCircleRightIcon},
     props:{
-        date:{
+        text:{
             type:String,
             default:'Thurday'
+        },
+        image:{
+            type:String,
+            default:'/src/assets/Ticket.png'
         }
     }
 }

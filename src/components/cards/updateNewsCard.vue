@@ -5,9 +5,7 @@
       </div>
       <div class="px-3">
           <div class="flex w-full justify-between items-center mb-3">
-              <div class="px-3 bg-slate-600 rounded-xl uppercase ">
-                  <p class="text-[10px]">News</p>
-              </div>
+              <p class="text-[10px] px-3 bg-slate-600 rounded-xl uppercase">News</p>
               <ArrowCircleRightIcon class="w-5 h-5 stroke-black"/>
           </div>
           <h4 class="text-black text-[20px]">Check out Relianze’s solo Acceleration’ EP on Rapture Records</h4>

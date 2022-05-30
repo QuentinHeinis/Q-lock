@@ -19,7 +19,7 @@
                 <RouterLink to="/Tickets" @click="MenuOpen=!MenuOpen">Tickets</RouterLink>
             </li>
             <li>
-                <RouterLink to="/Artistes" @click="MenuOpen=!MenuOpen">Artistes</RouterLink>
+                <RouterLink to="/Artistes" @click="MenuOpen=!MenuOpen">Line-up</RouterLink>
             </li>
             <li>
                 <RouterLink to="/Contact" @click="MenuOpen=!MenuOpen">Contact</RouterLink>

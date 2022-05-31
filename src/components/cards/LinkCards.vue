@@ -5,7 +5,7 @@
     </div>
     <div class="flex w-full justify-between items-center mb-3 px-3">
         <p class="text-black font-smythe text-lg">{{text}}</p>
-        <ArrowCircleRightIcon class="w-5 h-5 stroke-black"/>
+        <RouterLink :to="chemin"><ArrowCircleRightIcon class="w-5 h-5 stroke-black"/></RouterLink>
     </div>
       
   </div>
@@ -24,6 +24,10 @@ export default {
         image:{
             type:String,
             default:'/src/assets/Ticket.png'
+        },
+        chemin:{
+            type:String,
+            default:'/'
         }
     }
 }

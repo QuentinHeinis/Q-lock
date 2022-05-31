@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LatestView from '../views/LatestView.vue'
 
+import LoginView from '../views/LoginView.vue'
 
 import TicketsView from '../views/Tickets/TicketsView.vue'
 import DetailsTicketView from '../views/Tickets/DetailsTicketView.vue'
@@ -21,6 +22,8 @@ const router = createRouter({
   routes: [
     { path: '/', name: 'HomeView', component: HomeView },
     { path: '/Latest', name: 'LatestView', component: LatestView },
+
+    { path: '/Login', name: 'LoginView', component: LoginView },
 
     { path: '/Tickets', name: 'TicketsView', component: TicketsView },
     { path: '/DetailsTicket', name: 'DetailsTicketView', component: DetailsTicketView },

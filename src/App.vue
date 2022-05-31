@@ -1,5 +1,5 @@
 <template>
-<header class="h-16 md:h-20 sticky flex items-center w-screen px-5 bg-gradient-to-t from-[#D6D6D6] xl:fixed xl:top-0 to-true-gray-25 z-40">
+<header class="h-16 md:h-20 sticky top-0 flex items-center w-screen px-5 bg-gradient-to-t from-[#D6D6D6] xl:fixed xl:top-0 to-true-gray-25 z-40">
     <div class="flex w-full justify-between items-center">
         <MenuAlt1Icon class="h-8 w-8 absolute xl:hidden" @click="MenuOpen=!MenuOpen" v-if="!MenuOpen"/>
         <XIcon class="h-8 w-8 absolute z-50 xl:hidden" @click="MenuOpen=!MenuOpen" v-if="MenuOpen"/>

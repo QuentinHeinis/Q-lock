@@ -4,15 +4,17 @@
       <img src="../assets/maxresdefault.png" alt="" class="object-cover w-full h-full">
     </div>
   </div>
-  <div class="-mt-72 px-6 mb-6">
-    <h1 class="font-smythe text-2xl mb-5">Q-lock 2022</h1>
-    <RouterLink to="/Tickets" class="mr-3"><solidBtn>Tickets</solidBtn></RouterLink>
-    <RouterLink to="/Tickets"><outlineBtn>Line-up</outlineBtn></RouterLink>
+  <div class="xl:flex xl:pr-[5%] xl:justify-between xl: w-full">
+    <div class="-mt-72 px-6 mb-6 xl:w-[30%] xl:-mt-11">
+      <h1 class="font-smythe text-2xl mb-5">Q-lock 2022</h1>
+      <RouterLink to="/Tickets" class="mr-3"><solidBtn>Tickets</solidBtn></RouterLink>
+      <RouterLink to="/Tickets"><outlineBtn>Line-up</outlineBtn></RouterLink>
+    </div>
+    <Container class="gap-[10px] flex flex-col xl:max-w-[70%] xl:w-[480px] xl:-mt-96 xl:mx-0">
+      <h2 class="font-smythe text-xl">Latest updates</h2>
+      <UpdateNewsCard v-for="i in 5" :key="i" :img="'/src/assets/image1.png'" :type="'News'"></UpdateNewsCard>
+    </Container>
   </div>
-  <Container class="gap-[10px] flex flex-col">
-    <h2 class="font-smythe text-xl">Latest spdates</h2>
-    <UpdateNewsCard v-for="i in 5" :key="i" :img="'/src/assets/image1.png'" :type="'News'"></UpdateNewsCard>
-  </Container>
   
 </template>
 

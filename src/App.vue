@@ -10,21 +10,21 @@
     </div>
     <nav class="h-screen absolute w-screen bg-true-gray-350 left-0 top-0 -translate-x-full opacity-0" :class="MenuOpen && 'translate-x-0 opacity-100'">
         
-        <ul class="h-full flex flex-col gap-14 justify-center items-center">
+        <ul class="h-full flex flex-col gap-14 justify-center items-center font-poppins">
             <li>
-                <RouterLink to="/" @click="MenuOpen=!MenuOpen">Home</RouterLink>
+                <RouterLink to="/" @click="MenuOpen=!MenuOpen" class="flex"><HomeIcon class="h-5 w-5 mr-2"/> Home</RouterLink>
             </li>
             <li>
-                <RouterLink to="/Latest" @click="MenuOpen=!MenuOpen">Latest update</RouterLink>
+                <RouterLink to="/Latest" @click="MenuOpen=!MenuOpen" class="flex"><NewspaperIcon class="h-5 w-5 mr-2"/> Latest update</RouterLink>
             </li>
             <li>
-                <RouterLink to="/Tickets" @click="MenuOpen=!MenuOpen">Tickets</RouterLink>
+                <RouterLink to="/Tickets" @click="MenuOpen=!MenuOpen" class="flex"><TicketIcon class="h-5 w-5 mr-2"/> Tickets</RouterLink>
             </li>
             <li>
-                <RouterLink to="/Artistes" @click="MenuOpen=!MenuOpen">Line-up</RouterLink>
+                <RouterLink to="/Artistes" @click="MenuOpen=!MenuOpen" class="flex"><UsersIcon class="h-5 w-5 mr-2"/> Line-up</RouterLink>
             </li>
             <li>
-                <RouterLink to="/Contact" @click="MenuOpen=!MenuOpen">Contact</RouterLink>
+                <RouterLink to="/Contact" @click="MenuOpen=!MenuOpen" class="flex"><MailIcon class="h-5 w-5 mr-2"/> Contact</RouterLink>
             </li>
         </ul>
     </nav>
@@ -58,7 +58,7 @@
 
 <script>
 import router from "./router"
-import {MenuAlt1Icon, XIcon, SearchIcon} from "@heroicons/vue/outline"
+import {MenuAlt1Icon, XIcon, SearchIcon, HomeIcon, NewspaperIcon, TicketIcon, UsersIcon, MailIcon} from "@heroicons/vue/outline"
 import logoPhone from "./components/logo/logoPhone.vue"
 import LogoTablette from "./components/logo/logoTablette.vue"
 import LogoDesktop from "./components/logo/logoDesktop.vue"
@@ -69,7 +69,7 @@ export default {
             MenuOpen:false,
         }
     },
-    components:{ MenuAlt1Icon, XIcon, logoPhone, SearchIcon, LogoTablette, LogoDesktop },
+    components:{ MenuAlt1Icon, XIcon, logoPhone, SearchIcon, LogoTablette, LogoDesktop, HomeIcon, NewspaperIcon, TicketIcon, UsersIcon, MailIcon},
 }
 
 </script>

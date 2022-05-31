@@ -8,19 +8,19 @@
       <li><button @click="Thursday = false, Friday = false, Saturday = false, Sunday = true" :class="Sunday && 'underline'">Sunday</button></li>
     </ul>
 
-    <div class="grid grid-cols-[repeat(auto-fit,minmax(450px,1fr))] gap-3" v-if="Thursday">
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-3" v-if="Thursday">
       <LinkCards v-for="nom in ListeArtiste" :key="nom" class="h-16" :image="'/src/assets/Image2.png'" :text="nom" :chemin="'/Artiste'"></LinkCards>
     </div>
-    <div class="grid grid-cols-[repeat(auto-fit,minmax(450px,1fr))] gap-3" v-if="Friday">
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-3" v-if="Friday">
       <LinkCards v-for="nom in ListeArtiste" :key="nom" class="h-16" :image="'/src/assets/image1.png'" :text="nom" :chemin="'/Artiste'" ></LinkCards>
     </div>
-    <div class="grid grid-cols-[repeat(auto-fit,minmax(450px,1fr))] gap-3" v-if="Saturday">
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-3" v-if="Saturday">
       <LinkCards v-for="nom in ListeArtiste" :key="nom" class="h-16" :image="'/src/assets/Ticket.png'" :text="nom" :chemin="'/Artiste'"></LinkCards>
     </div>
-    <div class="grid grid-cols-[repeat(auto-fit,minmax(450px,1fr))] gap-3" v-if="Sunday">
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-3" v-if="Sunday">
       <LinkCards v-for="nom in ListeArtiste" :key="nom" class="h-16" :image="'/src/assets/maxresdefault.png'" :text="nom" :chemin="'/Artiste'"></LinkCards>
     </div>
-    <Background></Background>
+    
   </div>
 </template>
 

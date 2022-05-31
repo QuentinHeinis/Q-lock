@@ -2,7 +2,7 @@
   <div class="mt-12 px-5 flex flex-col gap-20 relative">
     <h1 class="font-smythe text-2xl">Korsakoff</h1>
     <Container class="flex flex-col gap-3">
-      <img src="/src/assets/image1.png" alt="">
+      <img src="/src/assets/image1.png" alt="" class="max-w-sm w-2/3 mx-auto">
       <p>{{description}}</p>
     </Container>
 

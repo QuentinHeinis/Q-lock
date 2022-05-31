@@ -10,7 +10,7 @@
     </div>
     <nav class="h-screen absolute w-screen bg-true-gray-350 left-0 top-0 bottom-0 right-0 xl:top-20 -translate-x-full opacity-0 xl:h-[calc(100vh-80px)] xl:fixed xl:w-60 xl:translate-x-0 xl:opacity-100" :class="MenuOpen && 'translate-x-0 opacity-100'">
         
-        <ul class="h-full flex flex-col gap-14 justify-center items-center font-poppins">
+        <ul class="h-full flex flex-col gap-14 justify-center items-center font-poppins font-semibold xl:items-start xl:p-6 xl:justify-start">
             <li>
                 <RouterLink to="/" @click="MenuOpen=!MenuOpen" class="flex"><HomeIcon class="h-5 w-5 mr-2"/> Home</RouterLink>
             </li>
@@ -73,3 +73,25 @@ export default {
 }
 
 </script>
+
+<style>
+@media (min-width : 1280px) {
+    nav a.router-link-exact-active{
+        color: black;
+    }
+    nav a.router-link-exact-active::after{
+        content: "";
+        height: 20px;
+        width: 5px;
+        background: red;
+        position: absolute;
+        left: 0;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        box-shadow: 0px 0px 7px #FF0000;
+    }
+    nav a{
+        color: #666666;
+    }
+}
+</style>

@@ -1,14 +1,14 @@
 <template>
-<header class="h-16 md:h-20 sticky flex items-center w-screen px-5 bg-gradient-to-t from-[#D6D6D6] to-true-gray-25 z-40">
+<header class="h-16 md:h-20 sticky flex items-center w-screen px-5 bg-gradient-to-t from-[#D6D6D6] xl:fixed xl:top-0 to-true-gray-25 z-40">
     <div class="flex w-full justify-between items-center">
-        <MenuAlt1Icon class="h-8 w-8" @click="MenuOpen=!MenuOpen" v-if="!MenuOpen"/>
-        <XIcon class="h-8 w-8 absolute z-50" @click="MenuOpen=!MenuOpen" v-if="MenuOpen"/>
+        <MenuAlt1Icon class="h-8 w-8 xl:hidden" @click="MenuOpen=!MenuOpen" v-if="!MenuOpen"/>
+        <XIcon class="h-8 w-8 absolute z-50 xl:hidden" @click="MenuOpen=!MenuOpen" v-if="MenuOpen"/>
         <logoPhone class="w-11 h-11 md:hidden"/>
         <LogoTablette class="h-16 w-16 hidden md:block xl:hidden"/>
         <LogoDesktop class="hidden xl:block h-16 w-32"/>
         <SearchIcon class="h-8 w-8"/>
     </div>
-    <nav class="h-screen absolute w-screen bg-true-gray-350 left-0 top-0 -translate-x-full opacity-0" :class="MenuOpen && 'translate-x-0 opacity-100'">
+    <nav class="h-screen absolute w-screen bg-true-gray-350 left-0 top-0 bottom-0 right-0 xl:top-20 -translate-x-full opacity-0 xl:h-[calc(100vh-80px)] xl:fixed xl:w-60 xl:translate-x-0 xl:opacity-100" :class="MenuOpen && 'translate-x-0 opacity-100'">
         
         <ul class="h-full flex flex-col gap-14 justify-center items-center font-poppins">
             <li>
@@ -29,11 +29,11 @@
         </ul>
     </nav>
 </header>
-<main class="-mt-16 pt-16 md:-mt-20 md:pt-20 pb-28 bg-true-gray-900 min-h-screen text-white relative -z-0">
+<main class="-mt-16 pt-16 md:-mt-20 md:pt-20 xl:pt-40 pb-28 bg-true-gray-900 min-h-screen text-white relative -z-0 xl:w-[calc(100vw-15rem)] xl:left-60 xl:top">
     <RouterView/>
 </main>
 
-<footer class="bg-true-gray-900 flex flex-col w-full font-source-sans-pro">
+<footer class="bg-true-gray-900 flex flex-col w-full font-source-sans-pro relative xl:w-[calc(100vw-15rem)] xl:left-60 xl:top">
     <span class="w-10/12 h-[1px] bg-[#FAFAFA] mx-auto flex-none"></span>
     <div class="w-full flex justify-between px-7 py-5">
         <div class="flex flex-col">

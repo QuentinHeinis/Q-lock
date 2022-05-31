@@ -11,7 +11,7 @@
   </div>
   <Container class="gap-[10px] flex flex-col">
     <h2 class="font-smythe text-xl">Latest spdates</h2>
-    <UpdateNewsCard v-for="i in 5" :key="i"></UpdateNewsCard>
+    <UpdateNewsCard v-for="i in 5" :key="i" :img="'/src/assets/image1.png'" :type="'News'"></UpdateNewsCard>
   </Container>
   
 </template>

@@ -1,18 +1,20 @@
 <template>
-  <div class="mt-12 px-5 flex flex-col gap-20">
+  <div class="mt-12 px-5 flex flex-col gap-20 relative">
     <h1 class="font-smythe text-2xl">Contact</h1>
     <Container class="flex flex-col gap-3">
       <h2 class="font-smythe text-xl">The Team</h2>
       <Teamcards v-for="member in listeTeam" :key="member" :image="member.image" :mail="member.mail" :Nom="member.nom" :num="member.num" :Place="member.place"></Teamcards>
     </Container>
+    <Background></Background>
   </div>
 </template>
 
 <script>
 import Container from '../components/Container.vue';
 import Teamcards from '../components/cards/Teamcards.vue';
+import Background from '../components/background.vue';
 export default {
-    components: { Container, Teamcards },
+    components: { Container, Teamcards, Background },
     data(){
       return{
         listeTeam:[{nom:'Bruce', place:'Creator', num:'00.00.00.00.00', mail:'fake@mail.fr', image:'/src/assets/team/Bruce.png'},

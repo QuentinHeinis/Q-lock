@@ -1,9 +1,11 @@
 <template>
-<header class="h-16 sticky flex items-center w-screen px-5 bg-gradient-to-t from-[#DEDEDE09] to-true-gray-25 z-40">
-    <div class="flex w-full justify-between">
+<header class="h-16 md:h-20 sticky flex items-center w-screen px-5 bg-gradient-to-t from-[#D6D6D6] to-true-gray-25 z-40">
+    <div class="flex w-full justify-between items-center">
         <MenuAlt1Icon class="h-8 w-8" @click="MenuOpen=!MenuOpen" v-if="!MenuOpen"/>
         <XIcon class="h-8 w-8 absolute z-50" @click="MenuOpen=!MenuOpen" v-if="MenuOpen"/>
-        <Logo class="w-11 h-11"/>
+        <logoPhone class="w-11 h-11 md:hidden"/>
+        <LogoTablette class="h-16 w-16 hidden md:block xl:hidden"/>
+        <LogoDesktop class="hidden xl:block h-16 w-32"/>
         <SearchIcon class="h-8 w-8"/>
     </div>
     <nav class="h-screen absolute w-screen bg-true-gray-350 left-0 top-0 -translate-x-full opacity-0" :class="MenuOpen && 'translate-x-0 opacity-100'">
@@ -27,7 +29,7 @@
         </ul>
     </nav>
 </header>
-<main class="-mt-16 pb-28 pt-16 bg-true-gray-900 min-h-screen text-white relative -z-0">
+<main class="-mt-16 pt-16 md:-mt-20 md:pt-20 pb-28 bg-true-gray-900 min-h-screen text-white relative -z-0">
     <RouterView/>
 </main>
 
@@ -57,7 +59,9 @@
 <script>
 import router from "./router"
 import {MenuAlt1Icon, XIcon, SearchIcon} from "@heroicons/vue/outline"
-import Logo from "./components/logo.vue"
+import logoPhone from "./components/logo/logoPhone.vue"
+import LogoTablette from "./components/logo/logoTablette.vue"
+import LogoDesktop from "./components/logo/logoDesktop.vue"
 
 export default {
     data(){
@@ -65,7 +69,7 @@ export default {
             MenuOpen:false,
         }
     },
-    components:{ MenuAlt1Icon, XIcon, Logo, SearchIcon },
+    components:{ MenuAlt1Icon, XIcon, logoPhone, SearchIcon, LogoTablette, LogoDesktop },
 }
 
 </script>

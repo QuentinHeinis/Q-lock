@@ -28,6 +28,7 @@ import ArtisteView from '../views/Artistes/ArtisteView.vue'
 import GestionTicket from '../views/Gestion/GestionTicket.vue'
 import GestionContact from '../views/Gestion/Contact/GestionContact.vue'
 import GestionArtiste from '../views/Gestion/Artiste/GestionArtiste.vue'
+import GestionLatest from '../views/Gestion/Latest/GestionLatest.vue'
 
 import UpdateArtiste from '../views/Gestion/Artiste/UpdateArtiste.vue'
 import CreateArtiste from '../views/Gestion/Artiste/CreateArtiste.vue'
@@ -36,6 +37,10 @@ import DeleteArtiste from '../views/Gestion/Artiste/DeleteArtiste.vue'
 import UpdateContact from '../views/Gestion/Contact/UpdateContact.vue'
 import CreateContact from '../views/Gestion/Contact/CreateContact.vue'
 import DeleteContact from '../views/Gestion/Contact/DeleteContact.vue'
+
+import UpdateLatest from '../views/Gestion/Latest/UpdateLatest.vue'
+import CreateLatest from '../views/Gestion/Latest/CreateLatest.vue'
+import DeleteLatest from '../views/Gestion/Latest/DeleteLatest.vue'
 
 
 //404
@@ -55,7 +60,7 @@ const router = createRouter({
     { path: '/Latest', name: 'LatestView', component: LatestView },
 
     { path: '/Tickets', name: 'TicketsView', component: TicketsView },
-    { path: '/DetailsTicket', name: 'DetailsTicketView', component: DetailsTicketView },
+    { path: '/DetailsTicket/:id', name: 'DetailsTicket', component: DetailsTicketView },
 
     { path: '/Artistes', name: 'ListeArtistesView', component: ListeArtistesView },
     { path: '/Artiste/:id', name: 'Artiste', component: ArtisteView },
@@ -65,6 +70,7 @@ const router = createRouter({
     { path: '/GestionTicket', name: 'GestionTicket', component: GestionTicket, beforeEnter: guard },
     { path: '/GestionArtiste', name: 'GestionArtiste', component: GestionArtiste, beforeEnter: guard },
     { path: '/GestionContact', name: 'GestionContact', component: GestionContact, beforeEnter: guard },
+    { path: '/GestionLatest', name: 'GestionLatest', component: GestionLatest, beforeEnter: guard },
 
     { path: '/UpdateArtiste/:id', name: 'UpdateArtiste', component: UpdateArtiste, beforeEnter: guard },
     { path: '/CreateArtiste', name: 'CreateArtiste', component: CreateArtiste, beforeEnter: guard },
@@ -73,6 +79,11 @@ const router = createRouter({
     { path: '/UpdateContact/:id', name: 'UpdateContact', component: UpdateContact, beforeEnter: guard },
     { path: '/CreateContact', name: 'CreateContact', component: CreateContact, beforeEnter: guard },
     { path: '/DeleteContact/:id', name: 'DeleteContact', component: DeleteContact, beforeEnter: guard },
+
+
+    { path: '/UpdateLatest/:id', name: 'UpdateLatest', component: UpdateLatest, beforeEnter: guard },
+    { path: '/CreateLatest', name: 'CreateLatest', component: CreateLatest, beforeEnter: guard },
+    { path: '/DeleteLatest/:id', name: 'DeleteLatest', component: DeleteLatest, beforeEnter: guard },
 
 
     //404

@@ -15,6 +15,7 @@
                         <li><RouterLink to="/GestionTicket">gestion tickets</RouterLink></li>
                         <li><RouterLink to="/GestionArtiste">gestion artistes</RouterLink></li>
                         <li><RouterLink to="/GestionContact">gestion contacts</RouterLink></li>
+                        <li><RouterLink to="/GestionLatest">gestion latests</RouterLink></li>
                     </ul>
                 </li>                
             </ul>
@@ -49,6 +50,7 @@
                             <li><RouterLink to="/GestionTicket">gestion tickets</RouterLink></li>
                             <li><RouterLink to="/GestionArtiste">gestion artistes</RouterLink></li>
                             <li><RouterLink to="/GestionContact">gestion contacts</RouterLink></li>
+                            <li><RouterLink to="/GestionLatest">gestion latests</RouterLink></li>
                         </ul>
                     </li>                
                 </ul>

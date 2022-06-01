@@ -18,7 +18,7 @@ export default {
     data(){
       return{
         listeTeam:[{nom:'Bruce', place:'Creator', num:'00.00.00.00.00', mail:'fake@mail.fr', image:'/src/assets/team/Bruce.png'},
-                  {nom:'Cat', place:'Co-reator', num:'11.11.11.11.11', mail:'mail@fake.fr', image:'/src/assets/team/Cat.png'},
+                  {nom:'Cat', place:'Co-creator', num:'11.11.11.11.11', mail:'mail@fake.fr', image:'/src/assets/team/Cat.png'},
                   {nom:'Oswald', place:'Accounting', num:'22.22.22.22.22', mail:'fakebis@mail.fr', image:'/src/assets/team/Oswald.png'}]
       }
     }

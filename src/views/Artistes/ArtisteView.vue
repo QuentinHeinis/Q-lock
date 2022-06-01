@@ -1,9 +1,12 @@
 <template>
   <div class="mt-12 px-5 flex flex-col gap-20 relative">
-    <h1 class="font-smythe text-2xl">{{artiste.nom  }}</h1>
+    <h1 class="font-smythe text-2xl">Artiste</h1>
     <Container class="flex flex-col gap-3">
-      <img :src="artiste.img" alt="" class="max-w-sm w-2/3 mx-auto">
+      <h2 class="text-center font-smythe text-lg">{{artiste.nom}}</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2">
+        <img :src="artiste.img" alt="" class="max-w-sm w-2/3 mx-auto">
       <p>{{artiste.desc}}</p>
+      </div>
     </Container>
 
     <OutlineBtn class="w-fit mx-auto"><RouterLink to="/Artistes">Retour</RouterLink></OutlineBtn>

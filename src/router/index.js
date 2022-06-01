@@ -20,7 +20,10 @@ import LatestView from '../views/LatestView.vue'
 import TicketsView from '../views/Tickets/TicketsView.vue'
 import DetailsTicketView from '../views/Tickets/DetailsTicketView.vue'
 
+import ListeArtistesView from '../views/Artistes/ListeArtistesView.vue'
+import ArtisteView from '../views/Artistes/ArtisteView.vue'
 
+//admin part
 
 import GestionTicket from '../views/Gestion/GestionTicket.vue'
 import GestionContact from '../views/Gestion/Contact/GestionContact.vue'
@@ -34,11 +37,11 @@ import UpdateContact from '../views/Gestion/Contact/UpdateContact.vue'
 import CreateContact from '../views/Gestion/Contact/CreateContact.vue'
 import DeleteContact from '../views/Gestion/Contact/DeleteContact.vue'
 
+
+//404
 import NotFoundComponent from '../views/404.vue'
 
 
-import ListeArtistesView from '../views/Artistes/ListeArtistesView.vue'
-import ArtisteView from '../views/Artistes/ArtisteView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -54,7 +57,11 @@ const router = createRouter({
     { path: '/Tickets', name: 'TicketsView', component: TicketsView },
     { path: '/DetailsTicket', name: 'DetailsTicketView', component: DetailsTicketView },
 
+    { path: '/Artistes', name: 'ListeArtistesView', component: ListeArtistesView },
+    { path: '/Artiste/:id', name: 'Artiste', component: ArtisteView },
 
+
+    //admin part
     { path: '/GestionTicket', name: 'GestionTicket', component: GestionTicket, beforeEnter: guard },
     { path: '/GestionArtiste', name: 'GestionArtiste', component: GestionArtiste, beforeEnter: guard },
     { path: '/GestionContact', name: 'GestionContact', component: GestionContact, beforeEnter: guard },
@@ -68,10 +75,7 @@ const router = createRouter({
     { path: '/DeleteContact/:id', name: 'DeleteContact', component: DeleteContact, beforeEnter: guard },
 
 
-    { path: '/Artistes', name: 'ListeArtistesView', component: ListeArtistesView },
-    { path: '/Artiste/:id', name: 'Artiste', component: ArtisteView },
-
-
+    //404
     { path: '/:pathMatch(.*)', component: NotFoundComponent }
 
   ]

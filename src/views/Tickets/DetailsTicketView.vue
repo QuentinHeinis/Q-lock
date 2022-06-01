@@ -57,7 +57,7 @@ export default {
           if(this.refTicket.exists()){
               this.ticket = this.refTicket.data();
           }else{
-              this.console.log("latest inexistant");
+              //this.console.log("latest inexistant");
           }
         },
     }

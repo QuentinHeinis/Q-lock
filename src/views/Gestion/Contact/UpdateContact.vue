@@ -103,7 +103,7 @@ export default {
               this.contact = this.refContact.data();
               this.photoActuelle = this.contact.img;
           }else{
-              this.console.log("contact inexistant");
+              //this.console.log("contact inexistant");
           }
           const storage = getStorage();
           const spaceRef = ref(storage, 'team/'+this.contact.img);
@@ -112,7 +112,7 @@ export default {
                 this.imageData = url;
             })
             .catch((error) => {
-                console.log('erreur downloadurl', error);
+                //console.log('erreur downloadurl', error);
             })
       },
 
@@ -123,7 +123,7 @@ export default {
               deleteObject(docRef);
               docRef = ref(storage, 'team/'+this.contact.img);
               await uploadString(docRef, this.imageData, 'data_url').then((snapshot) =>{
-                  console.log('Uploaded a base64 string', this.contact.img);
+                  //console.log('Uploaded a base64 string', this.contact.img);
               });
           }
           const firestore = getFirestore();

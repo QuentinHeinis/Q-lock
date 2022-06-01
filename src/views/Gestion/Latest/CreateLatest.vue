@@ -95,9 +95,9 @@ export default {
       async createLatest(){
           const storage = getStorage();
           const refStorage = ref(storage, 'latest/'+this.latest.img);
-          console.log('refStorage', refStorage);
+          //console.log('refStorage', refStorage);
           await uploadString(refStorage, this.imageData, 'data_url').then((snapshot)=> {
-              console.log('Uploaded a base64 string');
+              //console.log('Uploaded a base64 string');
               const db = getFirestore();
               const docRef = addDoc(collection(db, 'latests'), this.latest );
           });

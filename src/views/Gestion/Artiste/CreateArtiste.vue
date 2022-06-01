@@ -93,9 +93,9 @@ export default {
       async createArtiste(){
           const storage = getStorage();
           const refStorage = ref(storage, 'artiste/'+this.artiste.img);
-          console.log('refStorage', refStorage);
+          //console.log('refStorage', refStorage);
           await uploadString(refStorage, this.imageData, 'data_url').then((snapshot)=> {
-              console.log('Uploaded a base64 string');
+              //console.log('Uploaded a base64 string');
               const db = getFirestore();
               const docRef = addDoc(collection(db, 'artistes'), this.artiste );
           });

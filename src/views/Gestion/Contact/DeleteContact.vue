@@ -77,7 +77,7 @@ export default {
               this.contact = this.refContact.data();
               this.photoActuelle = this.contact.img;
           }else{
-              this.console.log("contact inexistant");
+              //this.console.log("contact inexistant");
           }
           const storage = getStorage();
           const spaceRef = ref(storage, 'team/'+this.contact.img);
@@ -86,7 +86,7 @@ export default {
                 this.photoActuelle = url;
             })
             .catch((error) => {
-                console.log('erreur downloadurl', error);
+                //console.log('erreur downloadurl', error);
             })
       },
 

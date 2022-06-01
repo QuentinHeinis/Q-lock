@@ -74,7 +74,7 @@ export default {
                 jour: this.jour,
                 prix: this.prix
             })
-            console.log('document créé avec le id : ', docRef.id);
+            //console.log('document créé avec le id : ', docRef.id);
         },
         async updateTick(tick){
             const firestore = getFirestore();

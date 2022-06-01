@@ -54,7 +54,7 @@ export default {
                   personne.img = url;
               })
               .catch((error) =>{
-                  console.log('erreur download url', error);
+                  //console.log('erreur download url', error);
               })
           })
           

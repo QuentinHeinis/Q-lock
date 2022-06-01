@@ -140,14 +140,14 @@ export default {
 
         emitter.on('connectUser', e =>{
         this.user = e.user;
-        console.log('App => Reception user connecté', this.user);
+        //console.log('App => Reception user connecté', this.user);
         this.getUserInfo(this.user);
         })
 
 
         emitter.on('deConnectUser', e =>{
         this.user = e.user;
-        console.log('App => Reception user deconnecté', this.user);
+        //console.log('App => Reception user deconnecté', this.user);
         this.userInfo = null,
         this.name = 'Account',
         this.avatar = null,
@@ -162,7 +162,7 @@ export default {
         this.userInfo = snapshot.docs.map(doc=>({
           id:doc.id, ...doc.data()
         }));
-        console.log("userInfo", this.userInfo);
+        //console.log("userInfo", this.userInfo);
         this.name = this.userInfo[0].login;
         this.isAdmin = this.userInfo[0].admin;
       });

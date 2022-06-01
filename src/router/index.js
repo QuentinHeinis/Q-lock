@@ -95,7 +95,7 @@ const router = createRouter({
 function guard(to, from, next) {
   getAuth().onAuthStateChanged(function (user) {
     if (user) {
-      console.log('router OK => user ', user);
+      //console.log('router OK => user ', user);
       const firestore = getFirestore();
       const dbUsers = collection(firestore, "users");
       const q = query(dbUsers, where("uid", "==", user.uid));
@@ -112,7 +112,7 @@ function guard(to, from, next) {
         }
       })
     } else {
-      console.log('router NOK => user ', user);
+      //console.log('router NOK => user ', user);
       next({ name: "HomeView" });
     }
   });

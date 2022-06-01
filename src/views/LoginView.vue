@@ -88,12 +88,12 @@ export default {
             signInWithEmailAndPassword(getAuth(), this.user.email, this.user.password)
             .then((response) =>{
                 this.user = response.user;
-                console.log("user", this.user);
+                //console.log("user", this.user);
                 emitter.emit('connectUser', {user: this.user});
                 this.message = "user connecté : " + this.user.email;
             })
             .catch((error)=>{
-                console.log('erreur connexion', error);
+                //console.log('erreur connexion', error);
                 this.message = "erreur d'authentification";
             })
         },
@@ -108,7 +108,7 @@ export default {
                 emitter.emit('deConnectUser', {user:this.user});
             })
             .catch(error=>{
-                console.log('erreur deconnexion', error);
+                //console.log('erreur deconnexion', error);
             })
         },
         onCreate(){
@@ -120,7 +120,7 @@ export default {
                         // ...
                     })
                     .catch((error) => {
-                        console.log('erreur création', error);
+                        //console.log('erreur création', error);
                         this.message = "erreur de création";
                         // ..
                 })
@@ -136,15 +136,15 @@ export default {
                         admin: false,
                         login: this.user.login
                 })
-                console.log('document créé avec le id : ', docRef.id); 
+                //console.log('document créé avec le id : ', docRef.id); 
                 } else {
-                    console.log("user pas connecter")
+                    //console.log("user pas connecter")
                 }
                 });
                 
             }else{
                 this.message = "password pas cohérent"
-                console.log('mdp mauvais')
+                //console.log('mdp mauvais')
             }
         },
     },

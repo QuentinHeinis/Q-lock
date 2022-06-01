@@ -104,7 +104,7 @@ export default {
               this.latest = this.refLatest.data();
               this.photoActuelle = this.latest.img;
           }else{
-              this.console.log("latest inexistant");
+              //this.console.log("latest inexistant");
           }
           const storage = getStorage();
           const spaceRef = ref(storage, 'latest/'+this.latest.img);
@@ -113,7 +113,7 @@ export default {
                 this.imageData = url;
             })
             .catch((error) => {
-                console.log('erreur downloadurl', error);
+                //console.log('erreur downloadurl', error);
             })
       },
 
@@ -124,7 +124,7 @@ export default {
               deleteObject(docRef);
               docRef = ref(storage, 'latest/'+this.latest.img);
               await uploadString(docRef, this.imageData, 'data_url').then((snapshot) =>{
-                  console.log('Uploaded a base64 string', this.latest.img);
+                  //console.log('Uploaded a base64 string', this.latest.img);
               });
           }
           const firestore = getFirestore();

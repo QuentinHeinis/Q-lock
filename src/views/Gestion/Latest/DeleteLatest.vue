@@ -78,7 +78,7 @@ export default {
               this.latest = this.refLatest.data();
               this.photoActuelle = this.latest.img;
           }else{
-              this.console.log("latest inexistant");
+              //this.console.log("latest inexistant");
           }
           const storage = getStorage();
           const spaceRef = ref(storage, 'latest/'+this.latest.img);
@@ -87,7 +87,7 @@ export default {
                 this.photoActuelle = url;
             })
             .catch((error) => {
-                console.log('erreur downloadurl', error);
+                //console.log('erreur downloadurl', error);
             })
       },
 

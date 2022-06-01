@@ -76,7 +76,7 @@ export default {
               this.artiste = this.refArtiste.data();
               this.photoActuelle = this.artiste.img;
           }else{
-              this.console.log("artiste inexistant");
+              //this.console.log("artiste inexistant");
           }
           const storage = getStorage();
           const spaceRef = ref(storage, 'artiste/'+this.artiste.img);
@@ -85,7 +85,7 @@ export default {
                 this.photoActuelle = url;
             })
             .catch((error) => {
-                console.log('erreur downloadurl', error);
+                //console.log('erreur downloadurl', error);
             })
       },
 

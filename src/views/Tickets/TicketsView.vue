@@ -4,7 +4,7 @@
     <Container class="flex flex-col gap-3">
       <h2 class="font-smythe text-xl">Tickets</h2>
       <div class="grid md:grid-cols-2 gap-3">
-        <LinkCards v-for="offer in ListeOffer" :key="offer" :text="offer" :image="'/src/assets/Ticket.png'" :chemin="'/DetailsTicket'"></LinkCards>
+        <LinkCards v-for="tick in ListeOffer" :key="tick.id" :text="tick.jour + ' - ' + tick.prix + ' €' " :image="'/src/assets/Ticket.png'" :chemin="'/DetailsTicket'"></LinkCards>
       </div>
     </Container>
     <Background></Background>
@@ -12,6 +12,16 @@
 </template>
 
 <script>
+import {
+    getFirestore,
+    collection,
+    doc,
+    getDocs,
+    addDoc,
+    updateDoc,
+    deleteDoc,
+    onSnapshot } from 'https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js'
+
 import Container from '../../components/Container.vue';
 import LinkCards from '../../components/cards/LinkCards.vue';
 import Background from '../../components/background.vue';
@@ -19,8 +29,20 @@ export default {
     components: { Container, LinkCards, Background },
     data(){
       return{
-        ListeOffer:['Thursday', 'Friday', 'Saturday', 'Sunday', 'Week-end', 'Premium' ]
+        ListeOffer:[]
       }
+    },
+    mounted(){
+      this.getTickets();
+    },
+    methods:{
+      async getTickets(){
+            const firestore = getFirestore();
+            const dbTicket = collection(firestore, "tickets");
+            const query = await onSnapshot(dbTicket, (snapshot) =>{
+                this.ListeOffer = snapshot.docs.map(doc => ({id:doc.id, ...doc.data()}));
+            })
+        },
     }
 }
 </script>

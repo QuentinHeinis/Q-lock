@@ -78,10 +78,6 @@ export default {
     mounted(){
       this.getArtiste();
     },
-    updated(){
-        
-      console.log(this.ListeArtiste);
-    },
     methods:{
       async getArtiste(){
         const firestore = getFirestore();

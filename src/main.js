@@ -3,8 +3,10 @@ import App from './App.vue'
 import router from './router'
 import './index.css'
 
+import mitt from 'mitt';
+
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 // Your web app's Firebase configuration
@@ -21,6 +23,9 @@ const appFirebase = initializeApp(firebaseConfig);
 
 
 const app = createApp(App)
+
+export const emitter = mitt();
+app.config.globalProperties.emitter = emitter;
 
 app.use(router)
 

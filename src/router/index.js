@@ -1,5 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+import { getAuth } from 'https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js'
+import {
+  getFirestore,
+  collection,
+  onSnapshot,
+  query,
+  where
+} from 'https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js'
 
 import HomeView from '../views/HomeView.vue'
 import MentionsView from '../views/MentionsView.vue'
@@ -47,17 +55,17 @@ const router = createRouter({
     { path: '/DetailsTicket', name: 'DetailsTicketView', component: DetailsTicketView },
 
 
-    { path: '/GestionTicket', name: 'GestionTicket', component: GestionTicket },
-    { path: '/GestionArtiste', name: 'GestionArtiste', component: GestionArtiste },
-    { path: '/GestionContact', name: 'GestionContact', component: GestionContact },
+    { path: '/GestionTicket', name: 'GestionTicket', component: GestionTicket, beforeEnter: guard },
+    { path: '/GestionArtiste', name: 'GestionArtiste', component: GestionArtiste, beforeEnter: guard },
+    { path: '/GestionContact', name: 'GestionContact', component: GestionContact, beforeEnter: guard },
 
-    { path: '/UpdateArtiste/:id', name: 'UpdateArtiste', component: UpdateArtiste },
-    { path: '/CreateArtiste', name: 'CreateArtiste', component: CreateArtiste },
-    { path: '/DeleteArtiste/:id', name: 'DeleteArtiste', component: DeleteArtiste },
+    { path: '/UpdateArtiste/:id', name: 'UpdateArtiste', component: UpdateArtiste, beforeEnter: guard },
+    { path: '/CreateArtiste', name: 'CreateArtiste', component: CreateArtiste, beforeEnter: guard },
+    { path: '/DeleteArtiste/:id', name: 'DeleteArtiste', component: DeleteArtiste, beforeEnter: guard },
 
-    { path: '/UpdateContact/:id', name: 'UpdateContact', component: UpdateContact },
-    { path: '/CreateContact', name: 'CreateContact', component: CreateContact },
-    { path: '/DeleteContact/:id', name: 'DeleteContact', component: DeleteContact },
+    { path: '/UpdateContact/:id', name: 'UpdateContact', component: UpdateContact, beforeEnter: guard },
+    { path: '/CreateContact', name: 'CreateContact', component: CreateContact, beforeEnter: guard },
+    { path: '/DeleteContact/:id', name: 'DeleteContact', component: DeleteContact, beforeEnter: guard },
 
 
     { path: '/Artistes', name: 'ListeArtistesView', component: ListeArtistesView },
@@ -68,6 +76,32 @@ const router = createRouter({
 
   ]
 })
+
+function guard(to, from, next) {
+  getAuth().onAuthStateChanged(function (user) {
+    if (user) {
+      console.log('router OK => user ', user);
+      const firestore = getFirestore();
+      const dbUsers = collection(firestore, "users");
+      const q = query(dbUsers, where("uid", "==", user.uid));
+      onSnapshot(q, (snapshot) => {
+        let userInfo = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        let isAdmin = userInfo[0].admin;
+        if (isAdmin) {
+          next(to.params.name);
+          return;
+        } else {
+          alert("Vous n'avez pas l'autorisation pour cette fonction");
+          next({ name: "HomeView" });
+          return;
+        }
+      })
+    } else {
+      console.log('router NOK => user ', user);
+      next({ name: "HomeView" });
+    }
+  });
+}
 
 export default router
 

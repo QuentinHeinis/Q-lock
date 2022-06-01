@@ -15,12 +15,16 @@ import DetailsTicketView from '../views/Tickets/DetailsTicketView.vue'
 
 
 import GestionTicket from '../views/Gestion/GestionTicket.vue'
-import GestionContact from '../views/Gestion/GestionContact.vue'
+import GestionContact from '../views/Gestion/Contact/GestionContact.vue'
 import GestionArtiste from '../views/Gestion/Artiste/GestionArtiste.vue'
 
 import UpdateArtiste from '../views/Gestion/Artiste/UpdateArtiste.vue'
 import CreateArtiste from '../views/Gestion/Artiste/CreateArtiste.vue'
 import DeleteArtiste from '../views/Gestion/Artiste/DeleteArtiste.vue'
+
+import UpdateContact from '../views/Gestion/Contact/UpdateContact.vue'
+import CreateContact from '../views/Gestion/Contact/CreateContact.vue'
+import DeleteContact from '../views/Gestion/Contact/DeleteContact.vue'
 
 import NotFoundComponent from '../views/404.vue'
 
@@ -50,6 +54,10 @@ const router = createRouter({
     { path: '/UpdateArtiste/:id', name: 'UpdateArtiste', component: UpdateArtiste },
     { path: '/CreateArtiste', name: 'CreateArtiste', component: CreateArtiste },
     { path: '/DeleteArtiste/:id', name: 'DeleteArtiste', component: DeleteArtiste },
+
+    { path: '/UpdateContact/:id', name: 'UpdateContact', component: UpdateContact },
+    { path: '/CreateContact', name: 'CreateContact', component: CreateContact },
+    { path: '/DeleteContact/:id', name: 'DeleteContact', component: DeleteContact },
 
 
     { path: '/Artistes', name: 'ListeArtistesView', component: ListeArtistesView },

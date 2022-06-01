@@ -12,19 +12,69 @@
     </div>
     <Container class="gap-[10px] flex flex-col xl:max-w-[70%] xl:w-[480px] xl:-mt-[30rem] xl:mx-0">
       <h2 class="font-smythe text-xl">Latest updates</h2>
-      <UpdateNewsCard v-for="i in 5" :key="i" :img="'/src/assets/image1.png'" :type="'News'"></UpdateNewsCard>
+      <UpdateNewsCard v-for="latest in ListeLatest" :key="latest" :img="latest.img" :type="latest.type" :Title="latest.titre"></UpdateNewsCard>
     </Container>
   </div>
   
 </template>
 
 <script>
+import {
+    getFirestore,
+    collection,
+    doc,
+    query,
+    orderBy,
+    getDocs,
+    addDoc,
+    updateDoc,
+    deleteDoc,
+    onSnapshot } from 'https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js'
+import { 
+    getStorage,             // Obtenir le Cloud Storage
+    ref,                    // Pour créer une référence à un fichier à uploader
+    getDownloadURL,         // Permet de récupérer l'adress complète d'un fichier du Storage
+    uploadString,           // Permet d'uploader sur le Cloud Storage une image en Base64
+} from 'https://www.gstatic.com/firebasejs/9.8.1/firebase-storage.js'
 import solidBtn from '../components/buttons/solidBtn.vue'
 import outlineBtn from '../components/buttons/outlineBtn.vue'
 import Container from '../components/Container.vue'
 import UpdateNewsCard from '../components/cards/updateNewsCard.vue'
 export default {
-  components:{ solidBtn, outlineBtn, Container, UpdateNewsCard }
+  components:{ solidBtn, outlineBtn, Container, UpdateNewsCard },
+  data(){
+        return{
+            ListeLatest:[],
+            query:'',
+        }
+    },
+    mounted(){
+      this.getLatest();
+    },
+    methods:{
+      async getLatest(){
+        const firestore = getFirestore();
+          const dbArt = collection(firestore, "latests");
+          const q = query(dbArt, orderBy('date', 'desc'));
+          await onSnapshot(q, (snapshot) =>{
+              this.ListeLatest = snapshot.docs.map(doc =>({
+                  id:doc.id, ...doc.data()
+              }))
+          this.ListeLatest.forEach(function(personne){
+              const storage = getStorage();
+              const spaceRef = ref(storage, 'latest/'+personne.img);
+              getDownloadURL(spaceRef)
+              .then((url) =>{
+                  personne.img = url;
+              })
+              .catch((error) =>{
+                  console.log('erreur download url', error);
+              })
+          })
+          
+          })
+      },
+    },
 }
 </script>
 

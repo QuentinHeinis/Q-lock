@@ -1,31 +1,31 @@
 <template>
     <div class="mt-12 px-5 flex flex-col gap-20 relative">
         <div class="flex justify-between items-end">
-            <h1 class="font-smythe text-2xl">Modifier un Contact</h1>
+            <h1 class="font-smythe text-2xl">Modifier Latest</h1>
         </div>
-        <form @submit.prevent="updateContact">
+        <form @submit.prevent="updateLatest">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <div class="grid place-items-center">
                     <img :src="imageData" class="w-1/2">
                 </div>
                 <div class="grid grid-cols-1 gap-14">
                     <div class="flex h-10 text-black rounded-sm overflow-hidden">
-                        <div class="bg-true-gray-25 px-5 border-[1px] flex justify-center items-center">Nom</div>
-                        <input class="w-full" type="text" placeholder="Nom du contact" v-model="contact.nom" required>
+                        <div class="bg-true-gray-25 px-5 border-[1px] flex justify-center items-center">Titre</div>
+                        <input class="w-full" type="text" placeholder="Titre du latest" v-model="latest.titre" required>
                     </div>
                     <div class="flex h-10 text-black rounded-sm overflow-hidden">
-                        <div class="bg-true-gray-25 px-5 border-[1px] flex justify-center items-center">Poste</div>
-                        <input class="w-full" type="text" placeholder="Poste du contact" v-model="contact.poste" required>
+                        <div class="bg-true-gray-25 px-5 border-[1px] flex justify-center items-center">Date</div>
+                        <input class="w-full" type="date" placeholder="Date du Latest" v-model="latest.date" required>
                         
                         
                     </div>
                     <div class="flex h-10 text-black rounded-sm overflow-hidden">
-                        <div class="bg-true-gray-25 px-5 border-[1px] flex justify-center items-center">Mail</div>
-                        <input class="w-full" type="text" placeholder="Mail du contact" v-model="contact.mail" required>
+                        <div class="bg-true-gray-25 px-5 border-[1px] flex justify-center items-center">Type</div>
+                        <input class="w-full" type="text" placeholder="Type du Latest" v-model="latest.type" required>
                     </div>
-                    <div class="flex h-10 text-black rounded-sm overflow-hidden">
-                        <div class="bg-true-gray-25 px-5 border-[1px] flex justify-center items-center">Numéro</div>
-                        <input class="w-full" type="text" placeholder="Numéro du Contact" v-model="contact.num" required>
+                    <div class="flex h-40 text-black rounded-sm overflow-hidden">
+                        <div class="bg-true-gray-25 px-5 border-[1px] flex justify-center items-center">Contenu</div>
+                        <textarea class="w-full" type="text" placeholder="Contenu du Latest" v-model="latest.content" required></textarea>
                     </div>
                     <div class="flex h-10 text-black rounded-sm overflow-hidden">
                         <div class="bg-true-gray-25 px-5 border-[1px] flex justify-center items-center">Photo</div>
@@ -43,6 +43,7 @@
         </form>
     </div>
 </template>
+
 <script>
 import { 
     getFirestore, 
@@ -64,26 +65,26 @@ export default {
     data(){
         return{
             imageData:null,    
-            contact:{   
-                nom:null,   
-                poste:null,
-                mail:null,
-                num:null,
+            latest:{   
+                date:null,   
+                content:null,
+                titre:null,
+                type:null,
                 img:null 
             },
 
-            refContact:null,     
+            refLatest:null,     
             imgModifiee:false,       
             photoActuelle:null 
         }
     },
     mounted(){
-        this.getContact(this.$route.params.id);
+        this.getLatest(this.$route.params.id);
     },
     methods:{
         previewImage: function(event){
           this.file = this.$refs.file.files[0];
-          this.contact.img = this.file.name;
+          this.latest.img = this.file.name;
           this.imgModifiee = true;
           var input = event.target;
           if(input.files && input.files[0]){
@@ -95,18 +96,18 @@ export default {
           }
       },
 
-      async getContact(id){
+      async getLatest(id){
           const firestore = getFirestore();
-          const docRef = doc(firestore, "team", id);
-          this.refContact = await getDoc(docRef);
-          if(this.refContact.exists()){
-              this.contact = this.refContact.data();
-              this.photoActuelle = this.contact.img;
+          const docRef = doc(firestore, "latests", id);
+          this.refLatest = await getDoc(docRef);
+          if(this.refLatest.exists()){
+              this.latest = this.refLatest.data();
+              this.photoActuelle = this.latest.img;
           }else{
-              this.console.log("contact inexistant");
+              this.console.log("latest inexistant");
           }
           const storage = getStorage();
-          const spaceRef = ref(storage, 'team/'+this.contact.img);
+          const spaceRef = ref(storage, 'latest/'+this.latest.img);
           getDownloadURL(spaceRef)
             .then((url)=>{
                 this.imageData = url;
@@ -116,19 +117,19 @@ export default {
             })
       },
 
-      async updateContact(){
+      async updateLatest(){
           if(this.imgModifiee){
               const storage = getStorage();
-              let docRef = ref(storage, 'team/'+this.photoActuelle);
+              let docRef = ref(storage, 'latest/'+this.photoActuelle);
               deleteObject(docRef);
-              docRef = ref(storage, 'team/'+this.contact.img);
+              docRef = ref(storage, 'latest/'+this.latest.img);
               await uploadString(docRef, this.imageData, 'data_url').then((snapshot) =>{
-                  console.log('Uploaded a base64 string', this.contact.img);
+                  console.log('Uploaded a base64 string', this.latest.img);
               });
           }
           const firestore = getFirestore();
-          await updateDoc(doc(firestore, "team", this.$route.params.id), this.contact);
-          this.$router.push('/GestionContact');
+          await updateDoc(doc(firestore, "latests", this.$route.params.id), this.latest);
+          this.$router.push('/GestionLatest');
       }
     }
 

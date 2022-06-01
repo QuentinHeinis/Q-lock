@@ -3,7 +3,7 @@
       <div class="flex-none w-[40%] max-w-[150px]">
           <img :src="img" alt="" class="object-cover w-full h-full">
       </div>
-      <div class="px-3">
+      <div class="px-3 w-full">
           <div class="flex w-full justify-between items-center mb-3">
               <p class="text-[10px] px-3 bg-slate-600 rounded-xl uppercase">{{type}}</p>
               <RouterLink to="/Latest"><ArrowCircleRightIcon class="w-5 h-5 stroke-black"/></RouterLink>
@@ -28,7 +28,7 @@ export default {
         },
         Title:{
             type:String,
-            default:"Check out Relianze’s solo Acceleration’ EP on Rapture Records"
+            default:"This is the latest news/releases"
         }
     }
 }

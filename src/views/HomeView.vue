@@ -1,7 +1,7 @@
 <template>
   <div class="relative h-[660px] -z-10">
     <div class="absolute top-0 left-0 right-0 bottom-0 imgGradient">
-      <img src="../assets/maxresdefault.png" alt="" class="object-cover w-full h-full">
+      <img src="/public/maxresdefault.png" alt="" class="object-cover w-full h-full">
     </div>
   </div>
   <div class="xl:flex xl:pr-[3%] xl:justify-between xl: w-full">

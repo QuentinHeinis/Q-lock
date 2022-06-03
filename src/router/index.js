@@ -23,6 +23,9 @@ import DetailsTicketView from '../views/Tickets/DetailsTicketView.vue'
 import ListeArtistesView from '../views/Artistes/ListeArtistesView.vue'
 import ArtisteView from '../views/Artistes/ArtisteView.vue'
 
+import StyleGuideView from '../views/StyleGuideView.vue'
+
+
 //admin part
 
 import GestionTicket from '../views/Gestion/GestionTicket.vue'
@@ -65,6 +68,7 @@ const router = createRouter({
     { path: '/Artistes', name: 'ListeArtistesView', component: ListeArtistesView },
     { path: '/Artiste/:id', name: 'Artiste', component: ArtisteView },
 
+    { path: '/Style-guide', name: 'style', component: StyleGuideView },
 
     //admin part
     { path: '/GestionTicket', name: 'GestionTicket', component: GestionTicket, beforeEnter: guard },

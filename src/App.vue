@@ -1,8 +1,8 @@
 <template>
-<header class="h-16 md:h-20 sticky top-0 flex items-center w-screen px-5 bg-gradient-to-t from-[#D6D6D6] xl:fixed xl:top-0 to-true-gray-25 z-40">
+<header class="h-16 md:h-20 sticky top-0 flex items-center w-screen px-5 bg-gradient-to-t from-[#D6D6D6] xl:fixed xl:top-0 to-true-gray-25 z-40 dark:from-[#2f3335;] dark:to-[#1e2021]">
     <div class="flex w-full justify-between items-center">
-        <MenuAlt1Icon class="h-8 w-8 absolute xl:hidden" @click="MenuOpen=!MenuOpen" v-if="!MenuOpen"/>
-        <XIcon class="h-8 w-8 absolute z-50 xl:hidden" @click="MenuOpen=!MenuOpen" v-if="MenuOpen"/>
+        <MenuAlt1Icon class="h-8 w-8 absolute xl:hidden dark:stroke-white" @click="MenuOpen=!MenuOpen" v-if="!MenuOpen"/>
+        <XIcon class="h-8 w-8 absolute z-50 xl:hidden dark:stroke-white" @click="MenuOpen=!MenuOpen" v-if="MenuOpen"/>
         <logoPhone class="w-11 h-11 mx-auto md:hidden"/>
         <LogoTablette class="h-16 w-16 mx-auto hidden md:block xl:hidden"/>
         <LogoDesktop class="hidden xl:block h-16 w-32"/>
@@ -21,7 +21,7 @@
             </ul>
         </div>
     </div>
-    <nav class="h-screen absolute w-screen bg-true-gray-350 left-0 top-0 bottom-0 right-0 xl:top-20 -translate-x-full opacity-0 xl:h-[calc(100vh-80px)] xl:fixed xl:w-60 xl:translate-x-0 xl:opacity-100" :class="MenuOpen && 'translate-x-0 opacity-100'">
+    <nav class="h-screen absolute w-screen bg-true-gray-350 dark:bg-[#42484b] left-0 top-0 bottom-0 right-0 xl:top-20 -translate-x-full opacity-0 xl:h-[calc(100vh-80px)] xl:fixed xl:w-60 xl:translate-x-0 xl:opacity-100" :class="MenuOpen && 'translate-x-0 opacity-100'">
         
         <ul class="h-full flex flex-col gap-14 justify-center items-center font-poppins font-semibold xl:items-start xl:p-6 xl:justify-start">
             <li>
@@ -172,6 +172,9 @@ export default {
 </script>
 
 <style>
+nav a{
+    color: rgb(239, 239, 239);
+}
 @media (min-width : 1280px) {
     nav a.router-link-exact-active{
         color: black;
@@ -190,7 +193,17 @@ export default {
     nav a{
         color: #666666;
     }
+    @media (prefers-color-scheme: dark){
+        nav a.router-link-exact-active{
+            color: rgb(239, 239, 239);
+        }
+        nav a{
+            color: #c2b8a8;
+        }
+    }
 }
+
+
 
 .administration ul{
     display: none;
@@ -212,5 +225,7 @@ export default {
     left: 0;
     top: 100%;
 }
+
+
 
 </style>

@@ -3,28 +3,28 @@
       <h1 class="font-smythe text-2xl">Liste tickets</h1>
     <div class="grid grid-cols-1 gap-2">
         <h2 class="w-4/5 m-auto text-base font-source-sans-pro">Créer tickets</h2>
-        <div class="grid grid-cols-2 mx-auto w-4/5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 mx-auto w-4/5">
             <div class="flex h-10 text-black rounded-l-sm overflow-hidden">
                 <div class="bg-true-gray-25 px-5 border-[1px] flex justify-center items-center">Nom</div>
-                <input class="w-full" type="text" placeholder="Nom du ticket" v-model="jour"  required>
+                <input class="w-full pl-2" type="text" placeholder="Nom du ticket" v-model="jour"  required>
             </div>
-            <div class="flex w-1/2 h-10 text-black rounded-r-sm overflow-hidden">
+            <div class="flex w-full h-10 text-black rounded-r-sm overflow-hidden">
                 <div class="bg-true-gray-25 px-5 border-[1px] flex justify-center items-center">Prix</div>
-                <input class="w-full" type="number" placeholder="Prix du ticket" v-model="prix"  required>
+                <input class="w-full pl-2" type="number" placeholder="Prix du ticket" v-model="prix"  required>
                 <div class="flex w-fit bg-white px-3 gap-3">
                     <button type="button" @click.prevent="createTick()"><SaveIcon class="w-7"/></button>
                 </div>
             </div>
         </div>
         <h3 class="w-4/5 m-auto text-base font-source-sans-pro">Liste des tickets</h3>
-        <div class="grid grid-cols-2 mx-auto w-4/5" v-for="ticket in listeTicket" :key="ticket">
+        <div class="grid grid-cols-1 sm:grid-cols-2 mx-auto w-4/5" v-for="ticket in listeTicket" :key="ticket">
             <div class="flex h-10 text-black rounded-l-sm overflow-hidden">
                 <div class="bg-true-gray-25 px-5 border-[1px] flex justify-center items-center">Nom</div>
-                <input class="w-full" type="text" placeholder="Nom du ticket" v-model="ticket.jour"  required>
+                <input class="w-full pl-2" type="text" placeholder="Nom du ticket" v-model="ticket.jour"  required>
             </div>
-            <div class="flex w-1/2 h-10 text-black rounded-r-sm overflow-hidden">
+            <div class="flex w-full h-10 text-black rounded-r-sm overflow-hidden">
                 <div class="bg-true-gray-25 px-5 border-[1px] flex justify-center items-center">Prix</div>
-                <input class="w-full" type="number" placeholder="Prix du ticket" v-model="ticket.prix"  required>
+                <input class="w-full pl-2" type="number" placeholder="Prix du ticket" v-model="ticket.prix"  required>
                 <div class="flex w-fit bg-white px-3 gap-3">
                     <button type="button" @click.prevent="updateTick(ticket)"><SaveIcon class="w-7"/></button>
                     <button type="button" @click.prevent="deleteTick(ticket)"><XIcon class="w-7" /></button>
